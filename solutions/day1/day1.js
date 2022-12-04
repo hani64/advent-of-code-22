@@ -1,11 +1,12 @@
-import * as readline from 'readline';
+const readline = require('readline');
+const fs = require('fs');
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+    input: fs.createReadStream('solutions/day1/input.txt'),
+    output: null
   });
 
-let calories: string[] = []
+let calories = []
 
 rl.on('line', line => {
     calories.push(line)
@@ -31,4 +32,3 @@ rl.on('close', () => {
   }
   console.log(max, max.reduce((a,b) => { return a+b }))
 });
-
